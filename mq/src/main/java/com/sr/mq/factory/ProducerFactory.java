@@ -1,4 +1,4 @@
-package com.sr.mq.producer.factory;
+package com.sr.mq.factory;
 
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 

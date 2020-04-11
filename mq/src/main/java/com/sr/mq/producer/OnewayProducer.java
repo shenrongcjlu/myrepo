@@ -1,6 +1,6 @@
 package com.sr.mq.producer;
 
-import com.sr.mq.producer.factory.ProducerFactory;
+import com.sr.mq.factory.ProducerFactory;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.common.message.Message;
 

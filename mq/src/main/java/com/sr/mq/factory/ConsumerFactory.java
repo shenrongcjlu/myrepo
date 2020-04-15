@@ -1,6 +1,7 @@
 package com.sr.mq.factory;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
+import org.apache.rocketmq.client.consumer.MessageSelector;
 import org.apache.rocketmq.client.exception.MQClientException;
 
 /**
@@ -23,6 +24,14 @@ public class ConsumerFactory {
         consumer.setNamesrvAddr("192.168.8.9:9876");
         consumer.setConsumerGroup("consumer_group");
         consumer.subscribe(topic, tag);
+        return consumer;
+    }
+
+    public static DefaultMQPushConsumer getConsumerBySql(String topic, String sql) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
+        consumer.setNamesrvAddr("192.168.8.9:9876");
+        consumer.setConsumerGroup("consumer_group");
+        consumer.subscribe(topic, MessageSelector.bySql(sql));
         return consumer;
     }
 }

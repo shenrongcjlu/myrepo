@@ -18,4 +18,11 @@ public class ConsumerFactory {
         consumer.subscribe("base", tag);
         return consumer;
     }
+    public static DefaultMQPushConsumer getConsumer(String topic, String tag) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer();
+        consumer.setNamesrvAddr("192.168.8.9:9876");
+        consumer.setConsumerGroup("consumer_group");
+        consumer.subscribe(topic, tag);
+        return consumer;
+    }
 }
